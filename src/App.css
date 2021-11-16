@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +24,27 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.form {
+  width: 26vw;
+  max-width: 356px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Input-field {
+  display: block;
+  padding: 19px;
+  width: 90%;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom-color: #3C3C434D;
+  border-bottom-width: 1px;
+  text-align: center;
+}
+
+.submitButton {
+  display: block;
+  padding: 14px 7px;
+  width: 149px;
+  border-radius: 20px;
+  background-color: #74748014;
 }
