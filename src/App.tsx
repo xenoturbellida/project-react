@@ -1,4 +1,4 @@
-import './App.css';
+import styles from './App.module.css';
 import React, {useState} from "react";
 
 const Input = (props: {
@@ -20,15 +20,6 @@ const Input = (props: {
   )
 }
 
-const Button = (props: {className: string, onClick: () => void, value: string}) => {
-  return (
-      <button
-        className={props.className}
-        onClick={props.onClick}>
-        {props.value}
-      </button>
-  )
-}
 
 const LoginForm = (props: {}) => {
     const [login, setLogin] = useState('');
@@ -53,10 +44,10 @@ const LoginForm = (props: {}) => {
     }
 
     return (
-        <form className='form' onSubmit={handleSubmit}>
+        <form className={styles.form} onSubmit={handleSubmit}>
             <Input
                 name='login'
-                className='Input-field'
+                className={styles.inputField}
                 type='text'
                 placeholder='Адрес электронной почты'
                 value={login}
@@ -64,13 +55,13 @@ const LoginForm = (props: {}) => {
             />
             <Input
                 name='password'
-                className='Input-field'
+                className={styles.inputField}
                 type='password'
                 placeholder='Пароль'
                 value={password}
                 onChange={handleInputChange}
             />
-            <input name='' className='submitButton' type='submit' value='Войти' />
+            <input name='' className={styles.submitButton} type='submit' value='Войти' />
         </form>
     );
 
@@ -79,10 +70,13 @@ const LoginForm = (props: {}) => {
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <LoginForm />
-      </header>
+    <div className={styles.App}>
+        <div className={styles.body}>
+            <div className={styles.container}>
+                <LoginForm />
+            </div>
+        </div>
+
     </div>
   );
 }

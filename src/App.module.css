@@ -13,32 +13,37 @@
   }
 }
 
-.App-header {
-  background-color: white;
-  min-height: 100vh;
+
+.body {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: column;
+  max-width: 375px;
+  width: 26%;
 }
 
 .form {
-  width: 26vw;
-  max-width: 356px;
+  width: 100%;
 }
 
-.Input-field {
+.inputField {
+  width: 100%;
   display: block;
-  padding: 19px;
-  width: 90%;
   border-top: none;
   border-right: none;
   border-left: none;
   border-bottom-color: #3C3C434D;
   border-bottom-width: 1px;
   text-align: center;
+
 }
 
 .submitButton {
