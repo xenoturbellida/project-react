@@ -1,5 +1,5 @@
 import './App.css';
-import React from "react";
+import React, {useState} from "react";
 
 const Input = (props: {
   name: string,
@@ -30,60 +30,54 @@ const Button = (props: {className: string, onClick: () => void, value: string}) 
   )
 }
 
+const LoginForm = (props: {}) => {
+    const [login, setLogin] = useState('');
+    const [password, setPassword] = useState('');
 
-class LoginForm extends React.Component<any, any> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      login: '',
-      password: ''
-    };
+    const handleSubmit = (event: { preventDefault: () => void; }) => {
+        alert('A form was submitted!');
+        event.preventDefault();
+    }
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    const handleInputChange = (event: { target: {value: string, name: string}; }) => {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
-  handleInputChange(event: { target: {value: string, name: string}; }) {
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
+        if (name === 'login') {
+            setLogin(value);
+        }
+        else if (name === 'password') {
+            setPassword(value);
+        }
+    }
 
-    this.setState({
-      [name]: value
-    });
-  }
-
-  handleSubmit(event: { preventDefault: () => void; }) {
-    alert('A form was submitted!' + this.state.value);
-    event.preventDefault();
-  }
-
-  render() {
     return (
-        <form className='form' onSubmit={this.handleSubmit}>
-          <Input
-              name='login'
-              className='Input-field'
-              type='text'
-              placeholder='Адрес электронной почты'
-              value={this.state.login}
-              onChange={this.handleInputChange}
-          />
-          <Input
-              name='password'
-              className='Input-field'
-              type='password'
-              placeholder='Пароль'
-              value={this.state.password}
-              onChange={this.handleInputChange}
-          />
-          <input name='' className='submitButton' type='submit' value='Войти' />
+        <form className='form' onSubmit={handleSubmit}>
+            <Input
+                name='login'
+                className='Input-field'
+                type='text'
+                placeholder='Адрес электронной почты'
+                value={login}
+                onChange={handleInputChange}
+            />
+            <Input
+                name='password'
+                className='Input-field'
+                type='password'
+                placeholder='Пароль'
+                value={password}
+                onChange={handleInputChange}
+            />
+            <input name='' className='submitButton' type='submit' value='Войти' />
         </form>
     );
-  }
+
+
 }
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
