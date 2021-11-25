@@ -1,5 +1,6 @@
-import styles from './App.module.css';
+import styles from './App.module.sass';
 import React, {useState} from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 const Input = (props: {
   name: string,
@@ -21,7 +22,7 @@ const Input = (props: {
 }
 
 
-const LoginForm = (props: {}) => {
+const LoginForm = () => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
@@ -68,16 +69,32 @@ const LoginForm = (props: {}) => {
 
 }
 
-const App = () => {
-  return (
-    <div className={styles.App}>
-        <div className={styles.body}>
-            <div className={styles.container}>
-                <LoginForm />
+const LoginPage = () => {
+    return (
+        <div className={styles.App}>
+            <div className={styles.body}>
+                <div className={styles.container}>
+                    <LoginForm />
+                </div>
             </div>
         </div>
+    )
+}
+const MainPage = () => {
+    return (
+        <h1>this is the main page</h1>
+    );
+}
 
-    </div>
+const App = () => {
+  return (
+      <BrowserRouter>
+          <Routes>
+              <Route path='/login' element={<LoginPage/>} />
+              <Route path='/' element={<MainPage/>} />
+          </Routes>
+      </BrowserRouter>
+
   );
 }
 
