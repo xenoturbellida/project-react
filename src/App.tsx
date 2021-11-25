@@ -2,6 +2,7 @@ import styles from './App.module.sass';
 import React, {useState} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {Input} from "./components/ui/Input";
+import {Button} from "./components/ui/Button";
 
 
 const LoginForm = () => {
@@ -27,7 +28,7 @@ const LoginForm = () => {
     }
 
     return (
-        <form className={styles.form} onSubmit={handleSubmit}>
+        <form className={styles.form}>
             <Input
                 name='login'
                 type='text'
@@ -42,7 +43,7 @@ const LoginForm = () => {
                 value={password}
                 onChange={handleInputChange}
             />
-            <Input name={'button'} type={'submit'}  value={'Войти'} />
+            <Button onClick={handleSubmit} title='Войти' />
         </form>
     );
 
