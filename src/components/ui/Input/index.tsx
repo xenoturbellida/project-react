@@ -6,7 +6,7 @@ export const Input = (props: IInput) => {
     return (
         <input
             name={props.name}
-            className={styles.inputField}
+            className={props.type === 'submit' ? styles.submitButton : styles.inputField}
             type={props.type}
             placeholder={props.placeholder}
             value={props.value}

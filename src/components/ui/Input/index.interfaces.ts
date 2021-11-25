@@ -1,8 +1,7 @@
 export interface IInput {
     name: string,
-    className: string,
-    type: string,
-    placeholder: string,
+    type: 'submit' | 'text' | 'password',
+    placeholder?: string,
     value: string,
-    onChange: (event: { target: {value: string, name: string}; }) => void
+    onChange?: (event: { target: {value: string, name: string}; }) => void
 }

@@ -30,7 +30,6 @@ const LoginForm = () => {
         <form className={styles.form} onSubmit={handleSubmit}>
             <Input
                 name='login'
-                className={styles.input}
                 type='text'
                 placeholder='Адрес электронной почты'
                 value={login}
@@ -38,13 +37,12 @@ const LoginForm = () => {
             />
             <Input
                 name='password'
-                className={styles.input}
                 type='password'
                 placeholder='Пароль'
                 value={password}
                 onChange={handleInputChange}
             />
-            <input name='' className={styles.submitButton} type='submit' value='Войти' />
+            <Input name={'button'} type={'submit'}  value={'Войти'} />
         </form>
     );
 
@@ -64,7 +62,10 @@ const LoginPage = () => {
 }
 const MainPage = () => {
     return (
-        <h1>this is the main page</h1>
+        <>
+            <h1>this is the main page</h1>
+            <a href='/login'>login</a>
+        </>
     );
 }
 
