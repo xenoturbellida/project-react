@@ -1,25 +1,7 @@
 import styles from './App.module.sass';
 import React, {useState} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-
-const Input = (props: {
-  name: string,
-  className: string,
-  type: string,
-  placeholder: string,
-  value: string,
-  onChange: (event: { target: {value: string, name: string}; }) => void}) => {
-  return (
-      <input
-          name={props.name}
-          className={props.className}
-          type={props.type}
-          placeholder={props.placeholder}
-          value={props.value}
-          onChange={props.onChange}
-      />
-  )
-}
+import {Input} from "./components/ui/Input";
 
 
 const LoginForm = () => {
@@ -48,7 +30,7 @@ const LoginForm = () => {
         <form className={styles.form} onSubmit={handleSubmit}>
             <Input
                 name='login'
-                className={styles.inputField}
+                className={styles.input}
                 type='text'
                 placeholder='Адрес электронной почты'
                 value={login}
@@ -56,7 +38,7 @@ const LoginForm = () => {
             />
             <Input
                 name='password'
-                className={styles.inputField}
+                className={styles.input}
                 type='password'
                 placeholder='Пароль'
                 value={password}
