@@ -1,8 +1,11 @@
 import styles from './App.module.sass';
 import React, {useState} from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Provider} from "mobx-react";
+import mainStore from "./stores/mainStore";
 import {Input} from "./components/ui/Input";
 import {Button} from "./components/ui/Button";
+import {FavouritePage} from "./pages/Favourite";
 
 
 const LoginForm = () => {
@@ -61,11 +64,13 @@ const LoginPage = () => {
         </div>
     )
 }
+
 const MainPage = () => {
     return (
         <>
             <h1>this is the main page</h1>
             <a href='/login'>login</a>
+            <a href='/favourite'>Коллекции</a>
         </>
     );
 }
@@ -73,10 +78,13 @@ const MainPage = () => {
 const App = () => {
   return (
       <BrowserRouter>
-          <Routes>
+          <Provider {...mainStore}>
+            <Routes>
               <Route path='/login' element={<LoginPage/>} />
               <Route path='/' element={<MainPage/>} />
-          </Routes>
+              <Route path='/favourite' element={<FavouritePage/>} />
+            </Routes>
+          </Provider>
       </BrowserRouter>
 
   );
