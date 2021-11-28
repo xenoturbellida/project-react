@@ -9,16 +9,45 @@ interface IPoster {
 
 const favouritesMock = [
     {
-
         title: 'Минари',
         rating: '6.9',
-        posterImg: '../../assets/favourites-images/midsommar.png'
+        posterImg: 'assets/favourites-images/minari.png'
     },
     {
-        title: 'Солнцестояние',
-        rating: '6.6',
-        posterImg: '../../assets/favourites-images/midsommar.png'
+        title: 'Манк',
+        rating: '7.1',
+        posterImg: 'assets/favourites-images/mank.png'
     },
+    {
+        title: 'Девушка, пода...',
+        rating: '6.8',
+        posterImg: 'assets/favourites-images/girl.png'
+    },
+    {
+        title: 'Земля кочевников',
+        rating: '7.3',
+        posterImg: 'assets/favourites-images/nomadland.png'
+    },
+    {
+        title: 'Отец',
+        rating: '7.9',
+        posterImg: 'assets/favourites-images/father.png'
+    },
+    {
+        title: 'Ещё по одной',
+        rating: '7.5',
+        posterImg: 'assets/favourites-images/drunk.png'
+    },
+    {
+        title: 'Душа',
+        rating: '8.3',
+        posterImg: 'assets/favourites-images/soul.png'
+    },
+    {
+        title: 'Годзилла',
+        rating: '6.1',
+        posterImg: 'assets/favourites-images/godzilla.png'
+    }
 ]
 
 export default class FavouriteStore {
