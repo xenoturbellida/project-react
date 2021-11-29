@@ -1,5 +1,5 @@
 export interface IInput {
-    name: string,
+    name?: string,
     type: 'submit' | 'text' | 'password',
     placeholder?: string,
     value: string,
