@@ -37,7 +37,7 @@ export default class AuthStore {
         return this.token !== '' && this.token !== null;
     };
 
-    login = (loginValue: string, password: string) => {
+    login = (loginValue: string, password: string, redirect: (url: '/' | '/favourite') => void) => {
         this.isLoading = true;
         this.isError = true; // WHY?
         // redirect should go here
@@ -47,11 +47,12 @@ export default class AuthStore {
                 console.log('then carried out');
                 this.isLoading = false;
                 this.token = (res as {token: string}).token;
-                // redirect('/');
+                redirect('/favourite');
             })
             .catch((err) => {
                 this.isLoading = false;
                 console.log(err);
+                redirect('/');
                 this.logout()
             });
     };

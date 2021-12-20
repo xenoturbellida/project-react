@@ -4,16 +4,24 @@ import {Input} from "../ui/Input";
 import {Button} from "../ui/Button";
 import {observer} from "mobx-react";
 import {useStores} from "../../utils/store-utils";
+import {useNavigate} from "react-router-dom";
+
 
 export const LoginForm = observer(() => {
     const {authStore: {login, isError}} = useStores();
 
+    let navigate = useNavigate();
+
     const [loginField, setLogin] = useState('');
     const [password, setPassword] = useState('');
 
+    const redirect = (url: '/' | '/favourite') => {
+        navigate(url);
+    }
+
     const handleSubmit = (event: { preventDefault: () => void; }) => {
-        alert('A form was submitted!');
-        login(loginField, password);
+        console.log('A form was submitted!');
+        login(loginField, password, redirect);
         event.preventDefault();
     }
 
