@@ -5,15 +5,18 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles);
 
 export const Button = (props: IButton) => {
+    const {title, onClick, mode = 'primary', disabled = false} = props;
     return (
         <button
-            onClick={props.onClick}
+            onClick={onClick}
             className={cx({
-                submitButton: true,
-                blueText: true
+                button: true,
+                primary: mode === 'primary',
+                secondary: mode === 'secondary'
             })}
+            disabled={disabled}
         >
-            {props.title}
+            {title}
         </button>
     )
 }

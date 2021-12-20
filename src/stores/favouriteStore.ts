@@ -7,7 +7,7 @@ interface IPoster {
     posterImg: string;
 }
 
-const favouritesMock = [
+const favouritesMock: IPoster[] = [
     {
         title: 'Минари',
         rating: '6.9',
