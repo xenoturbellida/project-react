@@ -39,28 +39,23 @@ export default class AuthStore {
 
     login = (loginValue: string, password: string, redirect: (url: '/' | '/favourite') => void) => {
         this.isLoading = true;
-        this.isError = true; // WHY?
-        // redirect should go here
+        this.isError = false;
         loginRequest('/address', {loginValue, password})
             .then((res) => {
-                // TODO: del this portion ->>
-                console.log('then carried out');
                 this.isLoading = false;
                 this.token = (res as {token: string}).token;
                 redirect('/favourite');
             })
             .catch((err) => {
                 this.isLoading = false;
+                this.isError = true;
                 console.log(err);
-                redirect('/');
-                this.logout()
             });
     };
 
     logout = () => {
         console.log('logout');
         this.token = '';
-        this.isLoading = false;
         this.isError = false;
     };
 }

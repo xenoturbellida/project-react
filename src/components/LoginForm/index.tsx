@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 
 
 export const LoginForm = observer(() => {
-    const {authStore: {login, isError}} = useStores();
+    const {authStore: {login, logout, isError}} = useStores();
 
     let navigate = useNavigate();
 
@@ -36,6 +36,10 @@ export const LoginForm = observer(() => {
         else if (name === 'password') {
             setPassword(value);
         }
+
+        if (isError) {
+            logout();
+        }
     }
 
     return (
@@ -46,6 +50,7 @@ export const LoginForm = observer(() => {
                 placeholder='Адрес электронной почты'
                 value={loginField}
                 onChange={handleInputChange}
+                error={isError}
             />
             <Input
                 name='password'
@@ -53,8 +58,20 @@ export const LoginForm = observer(() => {
                 placeholder='Пароль'
                 value={password}
                 onChange={handleInputChange}
+                error={isError}
             />
-            <Button onClick={handleSubmit} title='Войти' />
+            {isError &&
+                <div className={styles.error}>
+                    Неверные логин или пароль
+                </div>
+            }
+            <Button
+                onClick={handleSubmit}
+                title='Войти'
+                disabled={isError || loginField === '' || password === ''}
+            />
         </form>
+
+
     );
 })

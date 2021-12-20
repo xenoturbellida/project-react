@@ -3,5 +3,6 @@ export interface IInput {
     type: 'text' | 'password',
     placeholder?: string,
     value: string,
-    onChange?: (event: { target: {value: string, name: string}; }) => void
+    onChange?: (event: { target: {value: string, name: string}; }) => void,
+    error?: boolean
 }
