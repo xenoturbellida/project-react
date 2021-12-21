@@ -61,7 +61,7 @@ export const LoginForm = observer(() => {
                 error={isError}
             />
             {isError &&
-                <div className={styles.error}>
+                <div className={styles.errorMessage}>
                     Неверные логин или пароль
                 </div>
             }

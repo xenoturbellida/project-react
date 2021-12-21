@@ -1,11 +1,15 @@
-import styles from "../../App.module.sass";
+import logo from '../../assets/logos/Logo_Full.png';
+import {RegisterForm} from "../../components/RegisterForm";
+import { Anchor } from '../../components/ui/Anchor';
 
 export const RegisterPage = () => {
     return (
-        <div className={styles.App}>
-            {/*<div className={styles.body}>*/}
-                <h1>Register Page</h1>
-            {/*</div>*/}
+        <div>
+            <img src={logo} alt='' />
+            <RegisterForm />
+            <div>
+                <Anchor href='/login' title='Войти' />
+            </div>
         </div>
     )
 }
