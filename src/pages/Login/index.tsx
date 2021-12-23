@@ -11,7 +11,9 @@ export const LoginPage = () => {
             <LoginForm />
             <div className={styles.prompt}>
                 Есть логин для входа?
-                <Anchor href='/register' title='Регистрация' />
+                <Anchor href='/register'>
+                    Регистрация
+                </Anchor>
             </div>
         </div>
     )

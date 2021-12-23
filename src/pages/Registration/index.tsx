@@ -8,7 +8,9 @@ export const RegisterPage = () => {
             <img src={logo} alt='' />
             <RegisterForm />
             <div>
-                <Anchor href='/login' title='Войти' />
+                <Anchor href='/login'>
+                    Войти
+                </Anchor>
             </div>
         </div>
     )

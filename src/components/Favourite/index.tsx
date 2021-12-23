@@ -1,32 +1,32 @@
 import {observer} from "mobx-react";
 import {useStores} from "../../utils/store-utils";
 import {Poster} from "./Poster";
-
-interface IPoster {
-    title: string;
-    rating: string;
-    posterImg: string;
-}
+import {IPoster} from "./poster.interfaces";
+import {Anchor} from "../ui/Anchor";
+import styles from './index.module.sass'
 
 export const FavouriteGallery = observer(() => {
-    const {favouriteStore: {favourites}} = useStores();
+    const {favouriteStore: {getFavourites}} = useStores();
 
     const createGallery = (favourites: IPoster[]) => {
         let gallery = [];
         for (let film of favourites) {
             gallery.push(
-                <li key={film.title}>
-                    <Poster
-                        image={film.posterImg}
-                        title={film.title}
-                        rating={film.rating}
-                    />
+                <li className={styles.galleryItem} key={film.id}>
+                    <Anchor  href={'/'}>
+                        <Poster
+                            image={film.posterImg}
+                            title={film.title}
+                            rating={film.rating}
+                        />
+                    </Anchor>
+
                 </li>);
         }
         return gallery;
     };
 
     return (
-            <ul>{createGallery(favourites)}</ul>
+            <ul className={styles.gallery}>{createGallery(getFavourites)}</ul>
     )
 })

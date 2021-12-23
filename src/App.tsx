@@ -12,9 +12,9 @@ const MainPage = () => {
     return (
         <>
             <h1>this is the main page</h1>
-            <Anchor href={'/login'} title={'Login'} />
-            <Anchor href={'/favourite'} title={'favourite'} />
-            <Anchor href={'/register'} title={'register'} />
+            <Anchor href={'/login'}>Login</Anchor>
+            <Anchor href={'/favourite'}>Gallery</Anchor>
+            <Anchor href={'/register'}>Register</Anchor>
         </>
     );
 }

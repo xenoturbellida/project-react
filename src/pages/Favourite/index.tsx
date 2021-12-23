@@ -1,19 +1,15 @@
 import React from "react";
 import {FavouriteGallery} from "../../components/Favourite";
 import {BaseLayout} from "../../components/BaseLayout";
-import {Button} from "../../components/ui/Button";
-import { Switcher } from "../../components/Switcher";
-
+import styles from './index.module.sass'
 
 export const FavouritePage = () => {
     return (
-        <>
-            <BaseLayout title='Коллекция' />
-            <div className='container'>
-                <Switcher leftTitle='Буду смотреть' rightTitle='Просмотрено'/>
-                <Button onClick={() => {}} title='' />
-                <FavouriteGallery />
-            </div>
-        </>
+            <BaseLayout title='Коллекция'>
+                {/*<Switcher leftTitle='Буду смотреть' rightTitle='Просмотрено'/>*/}
+                <div className={styles.gallery__wrapper}>
+                    <FavouriteGallery />
+                </div>
+            </BaseLayout>
     )
 }

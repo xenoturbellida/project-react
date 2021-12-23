@@ -1,4 +1,3 @@
 export interface IAnchor {
-    href: string,
-    title: string
+    href: string
 }
