@@ -54,5 +54,11 @@ export const favouritesMock: IPoster[] = [
         title: 'Годзилла',
         rating: '6.1',
         posterImg: 'assets/favourites-images/godzilla.png'
+    },
+    {
+        id: 10,
+        title: 'Довод',
+        rating: '7.6',
+        posterImg: 'assets/favourites-images/tenet.png'
     }
 ]

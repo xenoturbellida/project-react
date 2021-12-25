@@ -1,4 +1,4 @@
-import styles from "./index.module.sass";
+import styles from "../../App.module.sass";
 import {LoginForm} from "../../components/LoginForm";
 import React from "react";
 import {Anchor} from "../../components/ui/Anchor";
@@ -10,7 +10,7 @@ export const LoginPage = () => {
             <img className={styles.logo} src={logo} alt='Логотип'/>
             <LoginForm />
             <div className={styles.prompt}>
-                Есть логин для входа?
+                Ещё не зарегистрированы?
                 <Anchor href='/register'>
                     Регистрация
                 </Anchor>

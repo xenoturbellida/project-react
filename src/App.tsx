@@ -6,6 +6,7 @@ import {FavouritePage} from "./pages/Favourite";
 import { LoginPage } from "./pages/Login";
 import {Anchor} from "./components/ui/Anchor";
 import {RegisterPage} from "./pages/Registration";
+import {DetailsPage} from "./pages/Details";
 
 
 const MainPage = () => {
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path='/login' element={<LoginPage/>} />
                 <Route path='/register' element={<RegisterPage/>} />
                 <Route path='/favourite' element={<FavouritePage/>} />
+                <Route path='/details' element={<DetailsPage/>} />
             </Routes>
           </Provider>
       </BrowserRouter>

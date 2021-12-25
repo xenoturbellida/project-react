@@ -1,11 +1,12 @@
 import {IButton} from "./index.interfaces";
 import styles from './index.module.sass';
 import classNames from "classnames/bind";
+import {FC} from "react";
 
 const cx = classNames.bind(styles);
 
-export const Button = (props: IButton) => {
-    const {title, onClick, mode = 'primary', disabled = false} = props;
+export const Button: FC<IButton> = (
+    {onClick, mode = 'primary', disabled = false, children}) => {
     return (
         <button
             onClick={onClick}
@@ -16,7 +17,7 @@ export const Button = (props: IButton) => {
             })}
             disabled={disabled}
         >
-            {title}
+            {children}
         </button>
     )
 }

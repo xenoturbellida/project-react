@@ -6,13 +6,14 @@ import classNames from "classnames/bind";
 const cx = classNames.bind(styles)
 
 export const Input = (props: IInput) => {
-    const {name, type = 'text', placeholder = '', value, onChange, error = false} = props;
+    const {name, type = 'text', placeholder = '', value, onChange, error = false, isLast = false} = props;
     return (
         <input
             name={name}
             className={cx({
                 input: true,
-                error: error
+                error: error,
+                isLast: isLast
             })}
             type={type}
             placeholder={placeholder}

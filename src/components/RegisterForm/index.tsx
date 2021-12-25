@@ -1,8 +1,13 @@
 import React, {useState} from "react";
 import { Input } from "../ui/Input";
 import {Button} from "../ui/Button";
+import styles from "../LoginForm/index.module.sass";
+import {useNavigate} from "react-router-dom";
 
 export const RegisterForm = () => {
+
+    let navigate = useNavigate();
+
     const [loginField, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const [passwordRepeated, setPasswordRepeated] = useState('');
@@ -38,17 +43,18 @@ export const RegisterForm = () => {
             setIsError(true);
         }
         else {
-            registerUser(loginField, password)
+            registerUser(loginField, password);
+            navigate('/login');
         }
         event.preventDefault();
     }
 
     return (
-        <form>
+        <form className={styles.form}>
             <Input
                 name='login'
                 type='text'
-                placeholder='placeholder'
+                placeholder='Адрес электронной почты'
                 value={loginField}
                 onChange={handleInputChange}
             />
@@ -62,16 +68,24 @@ export const RegisterForm = () => {
             <Input
                 name='passwordRepeated'
                 type='password'
-                placeholder='Пароль'
+                placeholder='Повторите пароль'
                 value={passwordRepeated}
                 onChange={handleInputChange}
+                isLast={!isError}
             />
+
+            {isError &&
+            <div className={styles.errorMessage}>
+                Пароли не совпадают
+            </div>
+            }
 
             <Button
                 onClick={handleSubmit}
-                title='Зарег'
                 disabled={isError || loginField === '' || password === ''}
-            />
+            >
+                Регистрация
+            </Button>
         </form>
     )
 }

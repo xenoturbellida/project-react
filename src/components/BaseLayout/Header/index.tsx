@@ -1,27 +1,53 @@
-import {Button} from "../../ui/Button";
 import logo from './../../../assets/logos/Logo_Short.png'
-import {Input} from "../../ui/Input";
-import userPhoto from './../../../assets/user_photo.png'
-import styles from './index.module.sass'
+import userPhoto from './../../../assets/user_photo.png';
+import styles from './index.module.sass';
+import collection_icon from "../../../assets/icons/tape_white.svg";
+import plus_img from "../../../assets/icons/plus.svg";
+import search_img from '../../../assets/icons/magnifier.svg';
+import {LinkWithIcon} from "../../LinkWithIcon";
+import classNames from "classnames/bind";
 
-export const Header = (props: {}) => {
-    return (
-        <div className={styles.header}>
-            <div className={styles.elementsBunch}>
-                <Button onClick={() => {}} title='Коллекция' />
-                <Button onClick={() => {}} title='Добавить' />
-            </div>
-            <img src={logo} className={styles.logoShort} alt='логотип'/>
-            <div className={styles.elementsBunch}>
-                <Input onChange={() => {}} value='Поиск' type='text'/>
-                <UserThumbnail image={userPhoto} />
-            </div>
-        </div>
-    )
+
+interface IHeader {
+    pageName: 'favourite' | 'search' | 'details' | 'add'
 }
 
-const UserThumbnail = (props: {image: string}) => {
+const cx = classNames.bind(styles)
+
+export const Header = (props: IHeader) => {
+    const {pageName} = props;
     return (
-        <img className='userThumbnail' src={props.image} alt='Фотография пользователя'/>
+        <div className={styles.header__wrapper}>
+            <div className={styles.header}>
+                <nav className={styles.bunch}>
+                    <LinkWithIcon
+                        icon={collection_icon}
+                        href={'/'}
+                        title='Коллекция'
+                        theme={pageName === 'favourite'? 'primary': 'secondary'}
+                    />
+                    <LinkWithIcon
+                        icon={plus_img}
+                        href={'/'}
+                        title='Добавить'
+                        theme={pageName === 'add'? 'primary': 'secondary'}
+                    />
+                </nav>
+
+                <a href='/' className={styles.logo}>
+                    <img src={logo} alt="Логотип"/>
+                </a>
+
+                <div className={cx({actions: true, bunch: true})}>
+                    <LinkWithIcon
+                        icon={search_img}
+                        title={'Поиск'}
+                        href={'/'}
+                        theme={pageName === ('search' || 'details')? 'primary': 'secondary'}
+                    />
+                    <img className="avatar" src={userPhoto} alt="Аватар"/>
+                </div>
+            </div>
+        </div>
     )
 }

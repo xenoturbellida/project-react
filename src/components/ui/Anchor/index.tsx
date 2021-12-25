@@ -8,9 +8,7 @@ const cx = classNames.bind(styles);
 
 export const Anchor: FC<IAnchor> = ({href, children}) => {
     return (
-        <a href={href} className={cx({
-            anchor: true
-        })}>
+        <a href={href} className={cx({anchor: true})}>
             {children}
         </a>
     )

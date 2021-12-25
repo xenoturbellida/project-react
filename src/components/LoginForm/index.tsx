@@ -59,6 +59,7 @@ export const LoginForm = observer(() => {
                 value={password}
                 onChange={handleInputChange}
                 error={isError}
+                isLast={!isError}
             />
             {isError &&
                 <div className={styles.errorMessage}>
@@ -67,9 +68,10 @@ export const LoginForm = observer(() => {
             }
             <Button
                 onClick={handleSubmit}
-                title='Войти'
                 disabled={isError || loginField === '' || password === ''}
-            />
+            >
+                Войти
+            </Button>
         </form>
 
 

@@ -4,5 +4,6 @@ export interface IInput {
     placeholder?: string,
     value: string,
     onChange?: (event: { target: {value: string, name: string}; }) => void,
-    error?: boolean
+    error?: boolean,
+    isLast?: boolean
 }

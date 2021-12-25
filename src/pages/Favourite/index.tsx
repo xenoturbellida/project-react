@@ -5,8 +5,7 @@ import styles from './index.module.sass'
 
 export const FavouritePage = () => {
     return (
-            <BaseLayout title='Коллекция'>
-                {/*<Switcher leftTitle='Буду смотреть' rightTitle='Просмотрено'/>*/}
+            <BaseLayout title='Коллекция' pageName='favourite'>
                 <div className={styles.gallery__wrapper}>
                     <FavouriteGallery />
                 </div>

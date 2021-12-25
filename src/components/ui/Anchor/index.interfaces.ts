@@ -1,3 +1,3 @@
 export interface IAnchor {
-    href: string
+    href: string;
 }
